@@ -32,9 +32,11 @@
 
 <div class="container">
   <% flash.each do |key, value| %>
-    <%= content_tag :div, value, class: "alert alert-#{key}" %>
-    <% end %>
-    
+    <div class="alert alert-success" role="alert"<%= key %>.alert-dismissible><%= value %></div>
+    <div class="alert alert-danger" role="alert"<%= key %>.alert-dismissible><%= value %></div>
+      <button type="button", class="close", data-dismiss="alert", aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <% end %>
+  
   <%= yield %>
 </div>
 
