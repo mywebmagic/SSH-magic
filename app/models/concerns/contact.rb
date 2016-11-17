@@ -9,9 +9,6 @@ class Contact < ActiveRecord::Base
     end
 end
 
-contact.create(name: "John").valid?# => true
-contact.create(name: nil).valid?# => false
-contact = contact.save(email: "john@example.com").valid?# => true
-contact = contact.save(email: nil).valid?# => false
+
 
     
