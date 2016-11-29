@@ -1,20 +1,20 @@
 $ (document).ready(function() {
   Stripe.setPublishableKey($('meta[name="stripe-key")').attr('content'));
   // Watch for a form submission:
-  $("#form-submit-btn".click(function(event) {
+  $("#form-submit-btn").click(function(event) {
       event.preventDefault();
       $('input[type=submit]').prop('disabled', true);
       var error = false;
-      var ccNum = $('#card_nimber').val(),
+      var ccNum = $('#card_number').val(),
           cvdNum = $('#card_code').val(),
           expMonth = $('#card_month').val(),
           expYear = $('#card_year').val();
             
        if (!error) {
           //Get the stripe token:
-          Stripe.createToken({
+          Stripe.card.createToken({
             number: ccNum,
-            cvc: cvdNium,
+            cvc: cvdNum,
             exp_month: expMonth,
             exp_year: expYear
           }, stripeResponseHandler);
@@ -27,7 +27,7 @@ function stripeResonseHandler(status, response) {
     var f = $("#new_user");
     
     // Get the token from the response:
-    var token = res[ponse.id;
+    var token = response.id;
     
     
     // Add the token to the form:
